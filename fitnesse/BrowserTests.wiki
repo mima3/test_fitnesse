@@ -1,0 +1,11 @@
+This is my first test suite.
+!contents -R2 -g -p -f -h
+!*> Basic setup for tests with Slim
+Workaround for https://github.com/unclebob/fitnesse/issues/989
+!define slim.port {0}
+!define TEST_SYSTEM {slim}
+!define ALL_UNCLE_SUITE_SETUPS {true}
+The classpath location:
+!path /opt/fitnesse/fixtures
+!path /opt/fitnesse/fixtures/*.jar
+*!

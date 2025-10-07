@@ -1,0 +1,21 @@
+---
+Test
+---
+!define TEST_SYSTEM {slim}
+!define COMMAND_PATTERN {/opt/fitnesse/slimjs_std/slim_std.js %p}
+!path /opt/fitnesse/slimjs_std/fixtures
+
+|import      |
+|hello|
+
+SlimJSを使用したテストの実験
+https://github.com/noamtcohen/SlimJS/tree/master
+
+|Hi            |
+|echo |sayHi?  |
+|Bob  |Hi! Bob |
+
+|script  |Hi|
+|setEcho  |Joe|
+|show|sayHi?|
+|check|sayHi?|Hi! Joe|

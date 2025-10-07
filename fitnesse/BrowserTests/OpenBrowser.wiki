@@ -1,0 +1,12 @@
+---
+Test
+---
+|script|browser test|
+|open|https://the-internet.herokuapp.com|
+|wait for visible|link=Add/Remove Elements|
+|show|take screenshot|home-page|
+|show|save page source        |
+|click|link=Add/Remove Elements|
+|wait for tag|h3|with text|Add/Remove Elements|
+|show|take screenshot|home-page|
+|show|save page source        |
