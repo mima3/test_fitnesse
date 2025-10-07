@@ -123,8 +123,8 @@ class SlimStdRunner {
     process.stdout.write(VERSION_LINE);
     this.buffer = '';
     process.stdin.on('data', (chunk) => {
+      logger.info({chunk }, "data");
       this.buffer += chunk;
-      logger.info({chunk, buffer: this.buffer}, "data");
       this.tryConsume();
     });
   }
@@ -177,14 +177,6 @@ class SlimStdRunner {
   handleSlimMessage(instructionSet) {
     logger.info({instructionSet}, 'handleSlimMessage')
 
-    const returnValues = [];
-    let currentInstructionIndex = 0;
-    if (instructionSet === BYE) {
-      this.writeResult(returnValues);
-      process.exit(0);
-    }
-    executeInstruction(instructionSet[0], onInstructionExecutionResult);
-
     const onInstructionExecutionResult = (result) => {
       returnValues.push(result);
       currentInstructionIndex++;
@@ -206,8 +198,16 @@ class SlimStdRunner {
     const wasLastInstructionExecuted = (result) => {
       return result === BYE || currentInstructionIndex === instructionSet.length;
     }
+    const returnValues = [];
+    let currentInstructionIndex = 0;
+    if (instructionSet === BYE) {
+      this.writeResult(returnValues);
+      process.exit(0);
+    }
+    executeInstruction(instructionSet[0], onInstructionExecutionResult);
   }
 }
+logger.info({ }, "start");
 
-const runner = SlimStdRunner();
+const runner = new SlimStdRunner();
 runner.start();

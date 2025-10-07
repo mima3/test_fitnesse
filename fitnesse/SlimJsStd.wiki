@@ -19,3 +19,16 @@ https://github.com/noamtcohen/SlimJS/tree/master
 |setEcho  |Joe|
 |show|sayHi?|
 |check|sayHi?|Hi! Joe|
+
+
+
+
+|import      |
+|calc|
+
+
+|Calc        |
+|a |b |add?  |
+|1 |2 |3     |
+|-1|2 |1     |
+|0 |0 |0     |
